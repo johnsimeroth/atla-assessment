@@ -51,9 +51,12 @@ function useTestCaseData({
 
   const testCasesWithScores =
     testCases?.filter((testCase) => {
-      const hasScore =
-        testCase.expected_score !== null && !isNaN(testCase.expected_score);
-      const hasAtlaScore = testCase.atla_score !== null;
+      const promptScores = selectedPrompt
+        ? testCase.scores[selectedPrompt.id]
+        : null;
+      const expectedScore = promptScores?.expected_score;
+      const hasScore = expectedScore != null && !isNaN(expectedScore);
+      const hasAtlaScore = promptScores?.atla_score != null;
 
       return hasScore && hasAtlaScore;
     }) || null;
@@ -119,8 +122,7 @@ function useTestCaseData({
       response: null,
       ...(hasContext ? { context: null } : {}),
       ...(hasReference ? { reference: null } : {}),
-      expected_score: null,
-      atla_score: null,
+      scores: {},
       critique: null,
     };
   }

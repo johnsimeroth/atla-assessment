@@ -1,13 +1,12 @@
 import { createTestCase } from "../../db";
-
+import { SnakeCaseScores, toCamelCaseScores } from "./scoreCaseMapper";
 export interface CreateTestCaseRequest {
   id?: string;
   input: string | null;
   response: string | null;
   context?: string | null;
   reference?: string | null;
-  expected_score: number | null;
-  atla_score: number | null;
+  scores: SnakeCaseScores;
   critique: string | null;
 }
 
@@ -17,23 +16,21 @@ interface CreateTestCaseResponse {
   response: string | null;
   context?: string | null;
   reference?: string | null;
-  expected_score: number | null;
-  atla_score: number | null;
+  scores: SnakeCaseScores;
   critique: string | null;
 }
 
 async function create(
-  request: CreateTestCaseRequest,
+  request: CreateTestCaseRequest
 ): Promise<CreateTestCaseResponse> {
   const id = request.id || crypto.randomUUID();
 
-  const { expected_score, atla_score, ...rest } = request;
+  const { scores, ...rest } = request;
 
   createTestCase({
     ...rest,
     id,
-    expectedScore: request.expected_score,
-    atlaScore: request.atla_score,
+    scores: toCamelCaseScores(scores),
   });
 
   return {

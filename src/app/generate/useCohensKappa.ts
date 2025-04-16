@@ -60,15 +60,21 @@ const getWeighting = (scoringCriteria: ScoringCriteria) => {
 function useCohensKappa({
   testCases,
   scoringCriteria,
+  promptId,
 }: {
   testCases: GetTestCasesForMetricResponse | null;
   scoringCriteria?: ScoringCriteria;
+  promptId: string | undefined;
 }) {
   if (!scoringCriteria) {
     return { kappa: null };
   }
 
   if (!testCases) {
+    return { kappa: null };
+  }
+
+  if (!promptId) {
     return { kappa: null };
   }
 
@@ -80,7 +86,7 @@ function useCohensKappa({
     return {
       ...acc,
       [testCase.id]: transformScore({
-        score: testCase.expected_score!,
+        score: testCase.scores[promptId].expected_score!,
         scoringCriteria,
       }),
     };
@@ -90,7 +96,7 @@ function useCohensKappa({
     return {
       ...acc,
       [testCase.id]: transformScore({
-        score: testCase.atla_score!,
+        score: testCase.scores[promptId].atla_score!,
         scoringCriteria,
       }),
     };
@@ -100,7 +106,7 @@ function useCohensKappa({
     expectedScores,
     atlaScores,
     getNumberOfCategories(scoringCriteria),
-    getWeighting(scoringCriteria),
+    getWeighting(scoringCriteria)
   );
 
   return { kappa: isNaN(kappa) ? 1 : kappa };

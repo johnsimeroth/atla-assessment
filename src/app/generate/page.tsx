@@ -50,6 +50,7 @@ export default function Generate() {
   const { kappa } = useCohensKappa({
     testCases: testCasesWithScores,
     scoringCriteria: selectedMetric?.scoring_criteria,
+    promptId: selectedPrompt?.id,
   });
 
   const {

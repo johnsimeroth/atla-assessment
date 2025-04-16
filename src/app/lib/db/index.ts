@@ -93,18 +93,18 @@ const deleteTestCase = (id: TestCase["id"]) => {
 
 const createTestCaseCollection = (testCaseCollection: TestCaseCollection) => {
   const testCaseCollections = JSON.parse(
-    localStorage.getItem("testCaseCollections") || "{}",
+    localStorage.getItem("testCaseCollections") || "{}"
   );
   testCaseCollections[testCaseCollection.id] = testCaseCollection;
   localStorage.setItem(
     "testCaseCollections",
-    JSON.stringify(testCaseCollections),
+    JSON.stringify(testCaseCollections)
   );
 };
 
 const getTestCaseCollections = (): TestCaseCollection[] => {
   return Object.values(
-    JSON.parse(localStorage.getItem("testCaseCollections") || "{}"),
+    JSON.parse(localStorage.getItem("testCaseCollections") || "{}")
   );
 };
 

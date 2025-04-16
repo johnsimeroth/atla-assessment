@@ -1,4 +1,5 @@
 import { getMetricById, getTestCaseById } from "../../db";
+import { SnakeCaseScores, toSnakeCaseScores } from "./scoreCaseMapper";
 
 export interface GetTestCasesForMetricRequest {
   metricId: string;
@@ -10,13 +11,12 @@ export type GetTestCasesForMetricResponse = {
   response: string | null;
   context?: string | null;
   reference?: string | null;
-  expected_score: number | null;
-  atla_score: number | null;
+  scores: SnakeCaseScores;
   critique: string | null;
 }[];
 
 async function getTestCasesForMetric(
-  request: GetTestCasesForMetricRequest,
+  request: GetTestCasesForMetricRequest
 ): Promise<GetTestCasesForMetricResponse> {
   const metric = getMetricById(request.metricId);
 
@@ -35,11 +35,11 @@ async function getTestCasesForMetric(
       return testCase;
     })
     .map((testCase) => {
-      const { expectedScore, atlaScore, ...rest } = testCase;
+      const { scores, ...rest } = testCase;
+
       return {
         ...rest,
-        expected_score: expectedScore,
-        atla_score: atlaScore,
+        scores: toSnakeCaseScores(scores),
       };
     });
 }

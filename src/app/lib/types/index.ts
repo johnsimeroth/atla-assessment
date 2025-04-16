@@ -47,20 +47,37 @@ export type FewShot = {
   inUse: boolean;
 };
 
-export type TestCase = {
+type PromptId = string;
+
+export type TestCaseScores = Record<
+  PromptId,
+  {
+    expectedScore: number | null;
+    atlaScore: number | null;
+  }
+>;
+
+export interface BaseTestCase {
   id: string;
   input: string | null;
   response: string | null;
   context?: string | null;
   reference?: string | null;
-  expectedScore: number | null;
-  atlaScore: number | null;
   critique: string | null;
-};
+}
 
-export interface CollectionTestCase extends TestCase {
-  expectedScore: null;
-  atlaScore: null;
+export interface TestCase extends BaseTestCase {
+  scores: TestCaseScores;
+}
+
+export interface CollectionTestCase extends BaseTestCase {
+  scores: Record<
+    PromptId,
+    {
+      expectedScore: null;
+      atlaScore: null;
+    }
+  >;
   critique: null;
 }
 

@@ -6,6 +6,7 @@ import unstacked from "@/../unstacked.json";
 import { useEffect, useRef, useState } from "react";
 import { BaseDropdown } from "@/app/lib/components/Dropdowns/BaseDropdown";
 import { Preconditions } from "@/app/lib/utils/preconditions";
+import { useGetTestCasesForMetric } from "../../queries/useGetTestCasesForMetric";
 
 const DropdownOptions = [
   {
@@ -37,6 +38,10 @@ const ScoreVisualizer = ({
   const [selectedOption, setSelectedOption] = useState<
     (typeof DropdownOptions)[number]
   >(DropdownOptions[0]);
+  const { data: testCases } = useGetTestCasesForMetric({
+    metricId: selectedMetric?.id,
+  });
+
   useEffect(() => {
     const chartContainer = chartRef.current;
     if (!chartContainer) return;
