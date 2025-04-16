@@ -503,25 +503,32 @@ const initialTestCasesWithUnformattedScores: Record<
   },
 };
 
-const initialTestCases = Object.entries(
+const initialTestCases: Record<string, TestCase> = Object.entries(
   initialTestCasesWithUnformattedScores
-).map(([id, testCase]) => {
-  const metricWithThisCase = Object.values(initialMetrics).find((metric) =>
-    metric.testCases.some((testCase) => testCase.id === id)
-  );
-  const promptId = metricWithThisCase?.prompts[0].id;
-  return {
-    ...testCase,
-    scores: promptId
-      ? {
-          [promptId]: {
-            expectedScore: testCase.expectedScore,
-            atlaScore: null,
-          },
-        }
-      : {},
-  };
-});
+)
+  .map(([id, testCase]) => {
+    const metricWithThisCase = Object.values(initialMetrics).find((metric) =>
+      metric.testCases.some((testCase) => testCase.id === id)
+    );
+    const promptId = metricWithThisCase?.prompts[0].id;
+    return {
+      ...testCase,
+      scores: promptId
+        ? {
+            [promptId]: {
+              expectedScore: testCase.expectedScore,
+              atlaScore: null,
+            },
+          }
+        : {},
+    };
+  })
+  .reduce((acc, testCase) => {
+    // @ts-ignore
+    acc[testCase.id] = testCase;
+    return acc;
+  }, {});
+
 function setInitialMetrics() {
   const metrics = getMetrics();
 
