@@ -31,6 +31,13 @@ body {
   background-color: #00855c !important;
 }
 
+.markdown-box {
+  padding: 1rem;
+  border-color: rgb(235 233 241 / 1);
+  border-width: 1px;
+  border-radius: 0.25rem;
+}
+
 .markdown {
   font-family: "Inter", sans-serif;
   font-size: 0.75rem;

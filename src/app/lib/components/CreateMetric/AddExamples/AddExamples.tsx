@@ -51,7 +51,7 @@ const AddExamples = ({
     } catch (error) {
       console.log(error);
       alert(
-        "Something went wrong while trying to generate a new example. Please try again.",
+        "Something went wrong while trying to generate a new example. Please try again."
       );
     } finally {
       setGeneratingExample(false);

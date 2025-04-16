@@ -1,6 +1,7 @@
 import { BlankSlate } from "./BlankSlate";
 import { PopulatedPrompt } from "./PopulatedPrompt/PopulatedPrompt";
 import { MetricResponse } from "../../api/metrics/get";
+import { ScoreVisualizer } from "../ScoreVisualizer/ScoreVisualizer";
 
 const Prompt = ({
   selectedPrompt,
@@ -19,11 +20,17 @@ const Prompt = ({
       {selectedPrompt === null ? (
         <BlankSlate />
       ) : (
-        <PopulatedPrompt
-          selectedPrompt={selectedPrompt}
-          selectedMetric={selectedMetric!}
-          setSelectedPrompt={setSelectedPrompt}
-        />
+        <>
+          <PopulatedPrompt
+            selectedPrompt={selectedPrompt}
+            selectedMetric={selectedMetric!}
+            setSelectedPrompt={setSelectedPrompt}
+          />
+          <ScoreVisualizer
+            selectedPrompt={selectedPrompt}
+            selectedMetric={selectedMetric}
+          />
+        </>
       )}
     </div>
   );
