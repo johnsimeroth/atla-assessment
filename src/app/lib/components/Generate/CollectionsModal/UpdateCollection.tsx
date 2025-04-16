@@ -25,7 +25,7 @@ function UpdateCollection({
   >(selectedTestCaseCollectionId);
 
   const selectedCollection = testCaseCollections.find(
-    (collection) => collection.id === selectedCollectionId,
+    (collection) => collection.id === selectedCollectionId
   );
 
   return (
@@ -42,7 +42,7 @@ function UpdateCollection({
                 {
                   "bg-gray": selectedCollectionId === testCaseCollection.id,
                   "border-b": index + 1 === testCaseCollections.length,
-                },
+                }
               )}
               key={testCaseCollection.id}
               onClick={() => {

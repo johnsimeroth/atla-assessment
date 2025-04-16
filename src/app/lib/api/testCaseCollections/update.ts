@@ -12,8 +12,10 @@ export interface RequestTestCase {
   response: string | null;
   context?: string | null;
   reference?: string | null;
-  expected_score: number | null;
-  atla_score: number | null;
+  scores: Record<
+    string,
+    { expected_score: number | null; atla_score: number | null }
+  >;
   critique: string | null;
 }
 
@@ -48,7 +50,7 @@ async function update(request: UpdateTestCaseCollectionRequest) {
       (testCase) => ({
         ...testCase,
         id: crypto.randomUUID(),
-      }),
+      })
     );
 
     const mappedTestCases: CollectionTestCase[] = duplicatedTestCases.map(
@@ -58,10 +60,10 @@ async function update(request: UpdateTestCaseCollectionRequest) {
         response: testCase.response,
         ...(testCase.context ? { context: testCase.context } : {}),
         ...(testCase.reference ? { reference: testCase.reference } : {}),
-        expectedScore: null,
-        atlaScore: null,
+        // TODO: Check if promptIds are needed here
+        scores: {},
         critique: null,
-      }),
+      })
     );
 
     newTestCases = mappedTestCases;
@@ -78,7 +80,7 @@ async function update(request: UpdateTestCaseCollectionRequest) {
       request.testCaseCollection.description ||
       existingTestCaseCollection.description,
     testCases: (newTestCases || existingTestCaseCollection.testCases).map(
-      ({ id }) => ({ id }),
+      ({ id }) => ({ id })
     ),
   };
 

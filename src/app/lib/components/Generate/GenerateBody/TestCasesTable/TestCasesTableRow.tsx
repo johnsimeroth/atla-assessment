@@ -141,6 +141,8 @@ function TestCasesTableRow({
         context: context,
         reference: reference,
         response: response,
+        promptId: selectedPromptId ?? null,
+        expectedScore: expectedScore,
       },
     ]);
 

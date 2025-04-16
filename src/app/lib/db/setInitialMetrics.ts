@@ -1,5 +1,6 @@
 import { getMetrics } from "@/app/lib/db/index";
 import { Metric, Prompt, ScoringCriteria, TestCase } from "../types";
+import { Preconditions } from "../utils/preconditions";
 
 const initialMetrics: Record<string, Metric> = {
   "b24fa599-5bfb-47ce-b4c0-86427565c337": {
@@ -304,7 +305,11 @@ const initialPrompts: Record<string, Prompt> = {
       "Measure how completely the response captures the key facts and details of the reference response.",
   },
 };
-const initialTestCases: Record<string, TestCase> = {
+
+const initialTestCasesWithUnformattedScores: Record<
+  string,
+  Omit<TestCase, "scores"> & { expectedScore: number; atlaScore: null }
+> = {
   "f109835d-4112-4ae3-8deb-9475a2f3ee3b": {
     input: "What are the main factors contributing to climate change?",
     response:
@@ -497,6 +502,32 @@ const initialTestCases: Record<string, TestCase> = {
     atlaScore: null,
   },
 };
+
+const initialTestCases: Record<string, TestCase> = Object.entries(
+  initialTestCasesWithUnformattedScores
+)
+  .map(([id, testCase]) => {
+    const metricWithThisCase = Object.values(initialMetrics).find((metric) =>
+      metric.testCases.some((testCase) => testCase.id === id)
+    );
+    const promptId = metricWithThisCase?.prompts[0].id;
+    return {
+      ...testCase,
+      scores: promptId
+        ? {
+            [promptId]: {
+              expectedScore: testCase.expectedScore,
+              atlaScore: null,
+            },
+          }
+        : {},
+    };
+  })
+  .reduce((acc, testCase) => {
+    // @ts-ignore
+    acc[testCase.id] = testCase;
+    return acc;
+  }, {});
 
 function setInitialMetrics() {
   const metrics = getMetrics();

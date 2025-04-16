@@ -37,6 +37,7 @@ export default function Generate() {
     setTestCaseValue,
     addTestCase,
     setTestCaseValues,
+    setTestCaseScore,
     testCasesWithScores,
     completeTestCases,
     removeTestCase,
@@ -50,6 +51,7 @@ export default function Generate() {
   const { kappa } = useCohensKappa({
     testCases: testCasesWithScores,
     scoringCriteria: selectedMetric?.scoring_criteria,
+    promptId: selectedPrompt?.id,
   });
 
   const {
@@ -63,6 +65,8 @@ export default function Generate() {
     examples: selectedMetric?.few_shots,
     setTestCaseValues,
     completeTestCases,
+    setTestCaseScore,
+    promptId: selectedPrompt?.id ?? null,
   });
 
   const {

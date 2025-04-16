@@ -15,6 +15,7 @@
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^5.16.7",
+    "@observablehq/plot": "^0.6.17",
     "@tanstack/react-query": "^5.51.23",
     "ai": "^3.3.6",
     "classnames": "^2.5.1",

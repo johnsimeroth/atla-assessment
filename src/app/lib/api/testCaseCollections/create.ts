@@ -1,5 +1,6 @@
 import { createTestCase, createTestCaseCollection } from "../../db";
 import { CollectionTestCase, TestCase, TestCaseCollection } from "../../types";
+import { toCamelCaseScores } from "../testCases/scoreCaseMapper";
 
 export interface RequestTestCase {
   id: string;
@@ -7,8 +8,13 @@ export interface RequestTestCase {
   response: string | null;
   context?: string | null;
   reference?: string | null;
-  expected_score: null;
-  atla_score: null;
+  scores: Record<
+    string,
+    {
+      expected_score: null;
+      atla_score: null;
+    }
+  >;
   critique: null;
 }
 
@@ -31,10 +37,10 @@ async function create(request: CreateTestCaseCollectionRequest) {
       response: testCase.response,
       ...(testCase.context ? { context: testCase.context } : {}),
       ...(testCase.reference ? { reference: testCase.reference } : {}),
-      expectedScore: testCase.expected_score,
-      atlaScore: testCase.atla_score,
+      // TODO: Check if promptIds are needed here
+      scores: {},
       critique: testCase.critique,
-    }),
+    })
   );
 
   mappedTestCases.forEach((testCase) => {

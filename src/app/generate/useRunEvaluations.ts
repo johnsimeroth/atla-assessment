@@ -10,6 +10,8 @@ export type RunEvaluationInput = {
   response: string | null;
   context?: string | null;
   reference?: string | null;
+  promptId: string | null;
+  expectedScore: number | null;
 }[];
 
 function useRunEvaluations({
@@ -18,6 +20,8 @@ function useRunEvaluations({
   examples,
   setTestCaseValues,
   completeTestCases,
+  setTestCaseScore,
+  promptId,
 }: {
   template?: string;
   scoringRuberic?: ScoringCriteria;
@@ -27,9 +31,16 @@ function useRunEvaluations({
       id: string;
       key: string;
       value: string | number | null;
-    }[],
+    }[]
   ) => void;
+  setTestCaseScore: (score: {
+    id: string;
+    promptId: string | null;
+    expectedScore: number | null;
+    atlaScore: number | null;
+  }) => void;
   completeTestCases: GetTestCasesForMetricResponse | null;
+  promptId: string | null;
 }) {
   const [runningEvaluations, setRunningEvaluations] = useState<string[]>([]);
   const [runningAllEvaluations, setRunningAllEvaluations] =
@@ -69,16 +80,11 @@ function useRunEvaluations({
           template,
           examples,
         });
-      }),
+      })
     );
 
     const updates = result.flatMap((evaluation, index) => {
       return [
-        {
-          id: testCases[index].id,
-          key: "atla_score",
-          value: evaluation.evaluation.score,
-        },
         {
           id: testCases[index].id,
           key: "critique",
@@ -88,7 +94,14 @@ function useRunEvaluations({
     });
 
     setTestCaseValues(updates);
-    setRunningEvaluations([]);
+    result.forEach(({ evaluation: { score: atlaScore } }, index) => {
+      setTestCaseScore({
+        id: testCases[index].id,
+        promptId,
+        expectedScore: testCases[index].expectedScore,
+        atlaScore,
+      });
+    });
   };
 
   const runAllEvaluations = async () => {
@@ -104,6 +117,8 @@ function useRunEvaluations({
       response: testCase.response,
       ...(testCase.context ? { context: testCase.context } : {}),
       ...(testCase.reference ? { reference: testCase.reference } : {}),
+      promptId,
+      expectedScore: promptId ? testCase.scores[promptId].expected_score : null,
     }));
 
     await runEvaluations(testCases);

@@ -51,12 +51,52 @@ function useTestCaseData({
 
   const testCasesWithScores =
     testCases?.filter((testCase) => {
-      const hasScore =
-        testCase.expected_score !== null && !isNaN(testCase.expected_score);
-      const hasAtlaScore = testCase.atla_score !== null;
+      const promptScores = selectedPrompt
+        ? testCase.scores[selectedPrompt.id]
+        : null;
+      const expectedScore = promptScores?.expected_score;
+      const hasScore = expectedScore != null && !isNaN(expectedScore);
+      const hasAtlaScore = promptScores?.atla_score != null;
 
       return hasScore && hasAtlaScore;
     }) || null;
+
+  const setTestCaseScore = ({
+    id,
+    promptId,
+    expectedScore,
+    atlaScore,
+  }: {
+    id: string;
+    promptId: string | null;
+    expectedScore: number | null;
+    atlaScore: number | null;
+  }) => {
+    if (testCases === null) {
+      throw new Error("Test cases are not loaded yet");
+    }
+    if (promptId === null) {
+      throw new Error("Prompt ID is required");
+    }
+    const updatedTestCases = testCases.map((testCase) => {
+      if (testCase.id === id) {
+        return {
+          ...testCase,
+          scores: {
+            ...testCase.scores,
+            [promptId]: {
+              expected_score: expectedScore,
+              atla_score: atlaScore,
+            },
+          },
+        };
+      }
+
+      return testCase;
+    });
+
+    setTestCases(updatedTestCases);
+  };
 
   const setTestCaseValue = ({
     id,
@@ -119,8 +159,7 @@ function useTestCaseData({
       response: null,
       ...(hasContext ? { context: null } : {}),
       ...(hasReference ? { reference: null } : {}),
-      expected_score: null,
-      atla_score: null,
+      scores: {},
       critique: null,
     };
   }
@@ -165,6 +204,7 @@ function useTestCaseData({
   return {
     isLoading,
     testCases: testCases,
+    setTestCaseScore,
     setTestCaseValue,
     setTestCaseValues,
     addTestCase,

@@ -47,12 +47,13 @@ function GenerateBody({
         {testCases.map((testCase, index) => {
           const isOnlyTestCase = testCases.length === 1;
           const testCaseIsComplete = completeTestCases?.some(
-            (testCase) => testCase.id === testCase.id,
+            (testCase) => testCase.id === testCase.id
           );
           const deleteDisabled =
+            !selectedPromptId ||
             (isOnlyTestCase &&
               !testCaseIsComplete &&
-              !testCase.atla_score &&
+              !testCase.scores[selectedPromptId]?.atla_score &&
               !testCase.critique) ||
             false;
 
@@ -65,8 +66,16 @@ function GenerateBody({
               context={testCase.context}
               reference={testCase.reference}
               response={testCase.response}
-              expectedScore={testCase.expected_score}
-              atlaScore={testCase.atla_score}
+              expectedScore={
+                selectedPromptId
+                  ? testCase.scores[selectedPromptId]?.expected_score
+                  : null
+              }
+              atlaScore={
+                selectedPromptId
+                  ? testCase.scores[selectedPromptId]?.atla_score
+                  : null
+              }
               atlaCritique={testCase.critique}
               onValueChange={onValueChange}
               isLastRow={testCases.length - 1 === index}

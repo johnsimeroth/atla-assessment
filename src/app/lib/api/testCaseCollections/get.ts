@@ -1,4 +1,5 @@
 import { getTestCaseById, getTestCaseCollections } from "../../db";
+import { toSnakeCaseScores } from "../testCases/scoreCaseMapper";
 
 export type GetTestCaseCollectionsResponse = {
   id: string;
@@ -10,8 +11,13 @@ export type GetTestCaseCollectionsResponse = {
     response: string | null;
     context?: string | null;
     reference?: string | null;
-    expected_score: number | null;
-    atla_score: number | null;
+    scores: Record<
+      string,
+      {
+        expected_score: number | null;
+        atla_score: number | null;
+      }
+    >;
     critique: string | null;
   }[];
 }[];
@@ -36,8 +42,7 @@ async function get(): Promise<GetTestCaseCollectionsResponse> {
         response: testCase.response,
         ...(testCase.context ? { context: testCase.context } : {}),
         ...(testCase.reference ? { reference: testCase.reference } : {}),
-        expected_score: testCase.expectedScore,
-        atla_score: testCase.atlaScore,
+        scores: toSnakeCaseScores(testCase.scores),
         critique: testCase.critique,
       };
     }),

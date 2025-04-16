@@ -20,8 +20,7 @@ function CreateCollection({
   const cleanedTestCases =
     testCases?.map((testCase) => ({
       ...testCase,
-      expected_score: null,
-      atla_score: null,
+      scores: {},
       critique: null,
     })) || null;
 

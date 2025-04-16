@@ -1,0 +1,962 @@
+[
+  {
+    "Version": "v1",
+    "question": "How do vaccines work?",
+    "answer": "Vaccines stimulate the immune system by introducing a harmless part of a pathogen, allowing the body to build immunity without causing disease.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "How do vaccines work?",
+    "answer": "Vaccines stimulate the immune system by introducing a harmless part of a pathogen, allowing the body to build immunity without causing disease.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "How does photosynthesis work in plants?",
+    "answer": "Photosynthesis is how plants make their food using sunlight and carbon dioxide. They absorb sunlight through their leaves and convert it into energy.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v1",
+    "question": "How does photosynthesis work in plants?",
+    "answer": "Photosynthesis is how plants make their food using sunlight and carbon dioxide. They absorb sunlight through their leaves and convert it into energy.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 4
+  },
+  {
+    "Version": "v1",
+    "question": "Why do humans need sleep?",
+    "answer": "Sleep is a mechanical process in the body that helps fuel digestion. Without it, we blink rapidly to restore consciousness, which is how trees sleep too.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v1",
+    "question": "Why do humans need sleep?",
+    "answer": "Sleep is a mechanical process in the body that helps fuel digestion. Without it, we blink rapidly to restore consciousness, which is how trees sleep too.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v1",
+    "question": "What causes tides in the ocean?",
+    "answer": "Tides happen because the Earth's rotation creates waves that move the water. Sometimes the wind helps, but mostly it's the spinning of the planet.",
+    "Delta": -2,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v1",
+    "question": "What causes tides in the ocean?",
+    "answer": "Tides happen because the Earth's rotation creates waves that move the water. Sometimes the wind helps, but mostly it's the spinning of the planet.",
+    "Delta": -2,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "Why do we see different constellations in the night sky throughout the year?",
+    "answer": "As the Earth orbits the sun, our night-side view of space changes. This shift causes different parts of the sky to be visible during different seasons, revealing new constellations at different times of year.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "Why do we see different constellations in the night sky throughout the year?",
+    "answer": "As the Earth orbits the sun, our night-side view of space changes. This shift causes different parts of the sky to be visible during different seasons, revealing new constellations at different times of year.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "What is the purpose of a CPU in a computer?",
+    "answer": "The CPU sings instructions to the motherboard while cooling fans compute electricity backwards.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v1",
+    "question": "What is the purpose of a CPU in a computer?",
+    "answer": "The CPU sings instructions to the motherboard while cooling fans compute electricity backwards.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 1
+  },
+  {
+    "Version": "v1",
+    "question": "Why does metal feel cold to the touch?",
+    "answer": "Metal takes heat away from your hand quickly, so it feels colder than other materials.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v1",
+    "question": "Why does metal feel cold to the touch?",
+    "answer": "Metal takes heat away from your hand quickly, so it feels colder than other materials.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "Why do we have seasons?",
+    "answer": "Seasons occur when months rotate around days faster than heat spreads through calendars.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v1",
+    "question": "Why do we have seasons?",
+    "answer": "Seasons occur when months rotate around days faster than heat spreads through calendars.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 1
+  },
+  {
+    "Version": "v1",
+    "question": "How do birds fly?",
+    "answer": "Because gravity pulls them up while their wings push them sideways into thinking faster.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v1",
+    "question": "How do birds fly?",
+    "answer": "Because gravity pulls them up while their wings push them sideways into thinking faster.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 2
+  },
+  {
+    "Version": "v1",
+    "question": "What is the function of the heart in the human body?",
+    "answer": "It mixes oxygen with food and sends emotions to your hands through arteries.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v1",
+    "question": "What is the function of the heart in the human body?",
+    "answer": "It mixes oxygen with food and sends emotions to your hands through arteries.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v1",
+    "question": "Why is the ocean salty?",
+    "answer": "Fish create salt when they swim fast and the sunlight cooks the water into minerals.",
+    "Delta": 1,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v1",
+    "question": "Why is the ocean salty?",
+    "answer": "Fish create salt when they swim fast and the sunlight cooks the water into minerals.",
+    "Delta": 1,
+    "Score type": "Atla",
+    "Value": 1
+  },
+  {
+    "Version": "v1",
+    "question": "How does a refrigerator work?",
+    "answer": "It uses fans to freeze time and cools the food by slowing down molecules until they forget they're warm.",
+    "Delta": -3,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v1",
+    "question": "How does a refrigerator work?",
+    "answer": "It uses fans to freeze time and cools the food by slowing down molecules until they forget they're warm.",
+    "Delta": -3,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "Can you explain why the sky appears blue during the day?",
+    "answer": "The sky is green because sunlight bounces off the moon, which absorbs all colors except blue, even though blue is not a color, especially underwater.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v1",
+    "question": "Can you explain why the sky appears blue during the day?",
+    "answer": "The sky is green because sunlight bounces off the moon, which absorbs all colors except blue, even though blue is not a color, especially underwater.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 2
+  },
+  {
+    "Version": "v1",
+    "question": "Why do people get sunburned?",
+    "answer": "Because heat from the sun burns the top layer of your skin when you stay outside too long.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v1",
+    "question": "Why do people get sunburned?",
+    "answer": "Because heat from the sun burns the top layer of your skin when you stay outside too long.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v1",
+    "question": "How does Wi-Fi work?",
+    "answer": "Wi-Fi connects your phone to satellites so you can get internet from space.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v1",
+    "question": "How does Wi-Fi work?",
+    "answer": "Wi-Fi connects your phone to satellites so you can get internet from space.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 4
+  },
+  {
+    "Version": "v1",
+    "question": "What causes earthquakes?",
+    "answer": "Wind moves underground and pushes the earth's plates, which makes the ground shake.",
+    "Delta": -2,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v1",
+    "question": "What causes earthquakes?",
+    "answer": "Wind moves underground and pushes the earth's plates, which makes the ground shake.",
+    "Delta": -2,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "Why do we need protein in our diet?",
+    "answer": "Protein helps build muscles and keeps our bodies strong and healthy.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v1",
+    "question": "Why do we need protein in our diet?",
+    "answer": "Protein helps build muscles and keeps our bodies strong and healthy.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "How does a plant grow?",
+    "answer": "Plants grow by absorbing sunlight and water through their leaves and roots.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v1",
+    "question": "How does a plant grow?",
+    "answer": "Plants grow by absorbing sunlight and water through their leaves and roots.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "What does DNA do in living organisms?",
+    "answer": "DNA carries genetic instructions used in growth, development, functioning, and reproduction of all known living organisms.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "What does DNA do in living organisms?",
+    "answer": "DNA carries genetic instructions used in growth, development, functioning, and reproduction of all known living organisms.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "Why does the moon have phases?",
+    "answer": "The moon’s phases result from its orbit around Earth and the changing angles of sunlight hitting it as seen from Earth.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v1",
+    "question": "Why does the moon have phases?",
+    "answer": "The moon’s phases result from its orbit around Earth and the changing angles of sunlight hitting it as seen from Earth.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v2",
+    "question": "How do vaccines work?",
+    "answer": "Vaccines stimulate the immune system by introducing a harmless part of a pathogen, allowing the body to build immunity without causing disease.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v2",
+    "question": "How do vaccines work?",
+    "answer": "Vaccines stimulate the immune system by introducing a harmless part of a pathogen, allowing the body to build immunity without causing disease.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v2",
+    "question": "How does photosynthesis work in plants?",
+    "answer": "Photosynthesis is how plants make their food using sunlight and carbon dioxide. They absorb sunlight through their leaves and convert it into energy.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v2",
+    "question": "How does photosynthesis work in plants?",
+    "answer": "Photosynthesis is how plants make their food using sunlight and carbon dioxide. They absorb sunlight through their leaves and convert it into energy.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 4
+  },
+  {
+    "Version": "v2",
+    "question": "Why do humans need sleep?",
+    "answer": "Sleep is a mechanical process in the body that helps fuel digestion. Without it, we blink rapidly to restore consciousness, which is how trees sleep too.",
+    "Delta": -2,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v2",
+    "question": "Why do humans need sleep?",
+    "answer": "Sleep is a mechanical process in the body that helps fuel digestion. Without it, we blink rapidly to restore consciousness, which is how trees sleep too.",
+    "Delta": -2,
+    "Score type": "Atla",
+    "Value": 4
+  },
+  {
+    "Version": "v2",
+    "question": "What causes tides in the ocean?",
+    "answer": "Tides happen because the Earth's rotation creates waves that move the water. Sometimes the wind helps, but mostly it's the spinning of the planet.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v2",
+    "question": "What causes tides in the ocean?",
+    "answer": "Tides happen because the Earth's rotation creates waves that move the water. Sometimes the wind helps, but mostly it's the spinning of the planet.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v2",
+    "question": "Why do we see different constellations in the night sky throughout the year?",
+    "answer": "As the Earth orbits the sun, our night-side view of space changes. This shift causes different parts of the sky to be visible during different seasons, revealing new constellations at different times of year.",
+    "Delta": 1,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v2",
+    "question": "Why do we see different constellations in the night sky throughout the year?",
+    "answer": "As the Earth orbits the sun, our night-side view of space changes. This shift causes different parts of the sky to be visible during different seasons, revealing new constellations at different times of year.",
+    "Delta": 1,
+    "Score type": "Atla",
+    "Value": 4
+  },
+  {
+    "Version": "v2",
+    "question": "What is the purpose of a CPU in a computer?",
+    "answer": "The CPU sings instructions to the motherboard while cooling fans compute electricity backwards.",
+    "Delta": -3,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v2",
+    "question": "What is the purpose of a CPU in a computer?",
+    "answer": "The CPU sings instructions to the motherboard while cooling fans compute electricity backwards.",
+    "Delta": -3,
+    "Score type": "Atla",
+    "Value": 4
+  },
+  {
+    "Version": "v2",
+    "question": "Why does metal feel cold to the touch?",
+    "answer": "Metal takes heat away from your hand quickly, so it feels colder than other materials.",
+    "Delta": 2,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v2",
+    "question": "Why does metal feel cold to the touch?",
+    "answer": "Metal takes heat away from your hand quickly, so it feels colder than other materials.",
+    "Delta": 2,
+    "Score type": "Atla",
+    "Value": 2
+  },
+  {
+    "Version": "v2",
+    "question": "Why do we have seasons?",
+    "answer": "Seasons occur when months rotate around days faster than heat spreads through calendars.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v2",
+    "question": "Why do we have seasons?",
+    "answer": "Seasons occur when months rotate around days faster than heat spreads through calendars.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 2
+  },
+  {
+    "Version": "v2",
+    "question": "How do birds fly?",
+    "answer": "Because gravity pulls them up while their wings push them sideways into thinking faster.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v2",
+    "question": "How do birds fly?",
+    "answer": "Because gravity pulls them up while their wings push them sideways into thinking faster.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 2
+  },
+  {
+    "Version": "v2",
+    "question": "What is the function of the heart in the human body?",
+    "answer": "It mixes oxygen with food and sends emotions to your hands through arteries.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v2",
+    "question": "What is the function of the heart in the human body?",
+    "answer": "It mixes oxygen with food and sends emotions to your hands through arteries.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v2",
+    "question": "Why is the ocean salty?",
+    "answer": "Fish create salt when they swim fast and the sunlight cooks the water into minerals.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v2",
+    "question": "Why is the ocean salty?",
+    "answer": "Fish create salt when they swim fast and the sunlight cooks the water into minerals.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v2",
+    "question": "How does a refrigerator work?",
+    "answer": "It uses fans to freeze time and cools the food by slowing down molecules until they forget they're warm.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v2",
+    "question": "How does a refrigerator work?",
+    "answer": "It uses fans to freeze time and cools the food by slowing down molecules until they forget they're warm.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v2",
+    "question": "Can you explain why the sky appears blue during the day?",
+    "answer": "The sky is green because sunlight bounces off the moon, which absorbs all colors except blue, even though blue is not a color, especially underwater.",
+    "Delta": -2,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v2",
+    "question": "Can you explain why the sky appears blue during the day?",
+    "answer": "The sky is green because sunlight bounces off the moon, which absorbs all colors except blue, even though blue is not a color, especially underwater.",
+    "Delta": -2,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v2",
+    "question": "Why do people get sunburned?",
+    "answer": "Because heat from the sun burns the top layer of your skin when you stay outside too long.",
+    "Delta": -2,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v2",
+    "question": "Why do people get sunburned?",
+    "answer": "Because heat from the sun burns the top layer of your skin when you stay outside too long.",
+    "Delta": -2,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v2",
+    "question": "How does Wi-Fi work?",
+    "answer": "Wi-Fi connects your phone to satellites so you can get internet from space.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v2",
+    "question": "How does Wi-Fi work?",
+    "answer": "Wi-Fi connects your phone to satellites so you can get internet from space.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 4
+  },
+  {
+    "Version": "v2",
+    "question": "What causes earthquakes?",
+    "answer": "Wind moves underground and pushes the earth's plates, which makes the ground shake.",
+    "Delta": -2,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v2",
+    "question": "What causes earthquakes?",
+    "answer": "Wind moves underground and pushes the earth's plates, which makes the ground shake.",
+    "Delta": -2,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v2",
+    "question": "Why do we need protein in our diet?",
+    "answer": "Protein helps build muscles and keeps our bodies strong and healthy.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v2",
+    "question": "Why do we need protein in our diet?",
+    "answer": "Protein helps build muscles and keeps our bodies strong and healthy.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v2",
+    "question": "How does a plant grow?",
+    "answer": "Plants grow by absorbing sunlight and water through their leaves and roots.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v2",
+    "question": "How does a plant grow?",
+    "answer": "Plants grow by absorbing sunlight and water through their leaves and roots.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v2",
+    "question": "What does DNA do in living organisms?",
+    "answer": "DNA carries genetic instructions used in growth, development, functioning, and reproduction of all known living organisms.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v2",
+    "question": "What does DNA do in living organisms?",
+    "answer": "DNA carries genetic instructions used in growth, development, functioning, and reproduction of all known living organisms.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v2",
+    "question": "Why does the moon have phases?",
+    "answer": "The moon’s phases result from its orbit around Earth and the changing angles of sunlight hitting it as seen from Earth.",
+    "Delta": 1,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v2",
+    "question": "Why does the moon have phases?",
+    "answer": "The moon’s phases result from its orbit around Earth and the changing angles of sunlight hitting it as seen from Earth.",
+    "Delta": 1,
+    "Score type": "Atla",
+    "Value": 4
+  },
+  {
+    "Version": "v3",
+    "question": "How do vaccines work?",
+    "answer": "Vaccines stimulate the immune system by introducing a harmless part of a pathogen, allowing the body to build immunity without causing disease.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "How do vaccines work?",
+    "answer": "Vaccines stimulate the immune system by introducing a harmless part of a pathogen, allowing the body to build immunity without causing disease.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "How does photosynthesis work in plants?",
+    "answer": "Photosynthesis is how plants make their food using sunlight and carbon dioxide. They absorb sunlight through their leaves and convert it into energy.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v3",
+    "question": "How does photosynthesis work in plants?",
+    "answer": "Photosynthesis is how plants make their food using sunlight and carbon dioxide. They absorb sunlight through their leaves and convert it into energy.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "Why do humans need sleep?",
+    "answer": "Sleep is a mechanical process in the body that helps fuel digestion. Without it, we blink rapidly to restore consciousness, which is how trees sleep too.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v3",
+    "question": "Why do humans need sleep?",
+    "answer": "Sleep is a mechanical process in the body that helps fuel digestion. Without it, we blink rapidly to restore consciousness, which is how trees sleep too.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v3",
+    "question": "What causes tides in the ocean?",
+    "answer": "Tides happen because the Earth's rotation creates waves that move the water. Sometimes the wind helps, but mostly it's the spinning of the planet.",
+    "Delta": -2,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v3",
+    "question": "What causes tides in the ocean?",
+    "answer": "Tides happen because the Earth's rotation creates waves that move the water. Sometimes the wind helps, but mostly it's the spinning of the planet.",
+    "Delta": -2,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "Why do we see different constellations in the night sky throughout the year?",
+    "answer": "As the Earth orbits the sun, our night-side view of space changes. This shift causes different parts of the sky to be visible during different seasons, revealing new constellations at different times of year.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "Why do we see different constellations in the night sky throughout the year?",
+    "answer": "As the Earth orbits the sun, our night-side view of space changes. This shift causes different parts of the sky to be visible during different seasons, revealing new constellations at different times of year.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "What is the purpose of a CPU in a computer?",
+    "answer": "The CPU sings instructions to the motherboard while cooling fans compute electricity backwards.",
+    "Delta": -2,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v3",
+    "question": "What is the purpose of a CPU in a computer?",
+    "answer": "The CPU sings instructions to the motherboard while cooling fans compute electricity backwards.",
+    "Delta": -2,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v3",
+    "question": "Why does metal feel cold to the touch?",
+    "answer": "Metal takes heat away from your hand quickly, so it feels colder than other materials.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v3",
+    "question": "Why does metal feel cold to the touch?",
+    "answer": "Metal takes heat away from your hand quickly, so it feels colder than other materials.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 4
+  },
+  {
+    "Version": "v3",
+    "question": "Why do we have seasons?",
+    "answer": "Seasons occur when months rotate around days faster than heat spreads through calendars.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v3",
+    "question": "Why do we have seasons?",
+    "answer": "Seasons occur when months rotate around days faster than heat spreads through calendars.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 1
+  },
+  {
+    "Version": "v3",
+    "question": "How do birds fly?",
+    "answer": "Because gravity pulls them up while their wings push them sideways into thinking faster.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v3",
+    "question": "How do birds fly?",
+    "answer": "Because gravity pulls them up while their wings push them sideways into thinking faster.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 2
+  },
+  {
+    "Version": "v3",
+    "question": "What is the function of the heart in the human body?",
+    "answer": "It mixes oxygen with food and sends emotions to your hands through arteries.",
+    "Delta": -3,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v3",
+    "question": "What is the function of the heart in the human body?",
+    "answer": "It mixes oxygen with food and sends emotions to your hands through arteries.",
+    "Delta": -3,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "Why is the ocean salty?",
+    "answer": "Fish create salt when they swim fast and the sunlight cooks the water into minerals.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v3",
+    "question": "Why is the ocean salty?",
+    "answer": "Fish create salt when they swim fast and the sunlight cooks the water into minerals.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v3",
+    "question": "How does a refrigerator work?",
+    "answer": "It uses fans to freeze time and cools the food by slowing down molecules until they forget they're warm.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 2
+  },
+  {
+    "Version": "v3",
+    "question": "How does a refrigerator work?",
+    "answer": "It uses fans to freeze time and cools the food by slowing down molecules until they forget they're warm.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v3",
+    "question": "Can you explain why the sky appears blue during the day?",
+    "answer": "The sky is green because sunlight bounces off the moon, which absorbs all colors except blue, even though blue is not a color, especially underwater.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 1
+  },
+  {
+    "Version": "v3",
+    "question": "Can you explain why the sky appears blue during the day?",
+    "answer": "The sky is green because sunlight bounces off the moon, which absorbs all colors except blue, even though blue is not a color, especially underwater.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 2
+  },
+  {
+    "Version": "v3",
+    "question": "Why do people get sunburned?",
+    "answer": "Because heat from the sun burns the top layer of your skin when you stay outside too long.",
+    "Delta": -2,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v3",
+    "question": "Why do people get sunburned?",
+    "answer": "Because heat from the sun burns the top layer of your skin when you stay outside too long.",
+    "Delta": -2,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "How does Wi-Fi work?",
+    "answer": "Wi-Fi connects your phone to satellites so you can get internet from space.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v3",
+    "question": "How does Wi-Fi work?",
+    "answer": "Wi-Fi connects your phone to satellites so you can get internet from space.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v3",
+    "question": "What causes earthquakes?",
+    "answer": "Wind moves underground and pushes the earth's plates, which makes the ground shake.",
+    "Delta": -2,
+    "Score type": "Expected",
+    "Value": 3
+  },
+  {
+    "Version": "v3",
+    "question": "What causes earthquakes?",
+    "answer": "Wind moves underground and pushes the earth's plates, which makes the ground shake.",
+    "Delta": -2,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "Why do we need protein in our diet?",
+    "answer": "Protein helps build muscles and keeps our bodies strong and healthy.",
+    "Delta": 1,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v3",
+    "question": "Why do we need protein in our diet?",
+    "answer": "Protein helps build muscles and keeps our bodies strong and healthy.",
+    "Delta": 1,
+    "Score type": "Atla",
+    "Value": 3
+  },
+  {
+    "Version": "v3",
+    "question": "How does a plant grow?",
+    "answer": "Plants grow by absorbing sunlight and water through their leaves and roots.",
+    "Delta": -1,
+    "Score type": "Expected",
+    "Value": 4
+  },
+  {
+    "Version": "v3",
+    "question": "How does a plant grow?",
+    "answer": "Plants grow by absorbing sunlight and water through their leaves and roots.",
+    "Delta": -1,
+    "Score type": "Atla",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "What does DNA do in living organisms?",
+    "answer": "DNA carries genetic instructions used in growth, development, functioning, and reproduction of all known living organisms.",
+    "Delta": 1,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "What does DNA do in living organisms?",
+    "answer": "DNA carries genetic instructions used in growth, development, functioning, and reproduction of all known living organisms.",
+    "Delta": 1,
+    "Score type": "Atla",
+    "Value": 4
+  },
+  {
+    "Version": "v3",
+    "question": "Why does the moon have phases?",
+    "answer": "The moon’s phases result from its orbit around Earth and the changing angles of sunlight hitting it as seen from Earth.",
+    "Delta": 0,
+    "Score type": "Expected",
+    "Value": 5
+  },
+  {
+    "Version": "v3",
+    "question": "Why does the moon have phases?",
+    "answer": "The moon’s phases result from its orbit around Earth and the changing angles of sunlight hitting it as seen from Earth.",
+    "Delta": 0,
+    "Score type": "Atla",
+    "Value": 5
+  }
+]

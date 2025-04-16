@@ -1,38 +1,6 @@
-import Select, { SingleValue, StylesConfig } from "react-select";
 import { MetricResponse } from "@/app/lib/api/metrics/get";
-
-interface Option {
-  value: string;
-  label: string;
-}
-
-const styles: StylesConfig<Option, false> = {
-  control: (styles) => ({
-    ...styles,
-    width: 100,
-    height: 30,
-    borderRadius: 8,
-    borderColor: "#EBE9F1",
-  }),
-  singleValue: (styles) => ({
-    ...styles,
-    textAlign: "center",
-    color: "#262626",
-    fontSize: 14,
-    fontWeight: 600,
-  }),
-  indicatorSeparator: (styles) => ({
-    ...styles,
-    height: "100%",
-    margin: 0,
-    backgroundColor: "#EBE9F1",
-  }),
-  menu: (styles) => ({
-    ...styles,
-    width: 78,
-    marginTop: 5,
-  }),
-};
+import { BaseDropdown, ChangeHandler } from "./BaseDropdown";
+import classNames from "classnames";
 
 const VersionDropdown = ({
   selectedPrompt,
@@ -41,7 +9,7 @@ const VersionDropdown = ({
   className = "",
 }: {
   selectedPrompt: MetricResponse["prompts"][number] | null;
-  onChange: (newValue: SingleValue<Option>) => void;
+  onChange: ChangeHandler;
   prompts: MetricResponse["prompts"] | null;
   className?: string;
 }) => {
@@ -61,12 +29,11 @@ const VersionDropdown = ({
   }
 
   return (
-    <Select
+    <BaseDropdown
       value={{ value: selectedPrompt.id, label: `v${selectedPrompt.version}` }}
       onChange={onChange}
       options={options}
-      styles={styles}
-      className={className}
+      className={classNames(className, "min-w-24")}
     />
   );
 };

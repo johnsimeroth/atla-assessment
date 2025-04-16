@@ -76,7 +76,7 @@ function useSaveMetric({
     setIsSavingMetric(true);
 
     const cleanedExamples = examples.filter((example) =>
-      isExampleComplete(example),
+      isExampleComplete(example)
     );
 
     const inputVariableIds = optionsToInputVariableIds(inputVariables);
@@ -86,8 +86,7 @@ function useSaveMetric({
       response: null,
       ...(inputVariableIds.includes("context") ? { context: null } : {}),
       ...(inputVariableIds.includes("reference") ? { reference: null } : {}),
-      expected_score: null,
-      atla_score: null,
+      scores: {},
       critique: null,
     };
 
