@@ -98,6 +98,41 @@ function useTestCaseData({
     setTestCases(updatedTestCases);
   };
 
+  const setTestCaseScores = (
+    scores: {
+      id: string;
+      promptId: string | null;
+      expectedScore: number | null;
+      atlaScore: number | null;
+    }[]
+  ) => {
+    if (testCases === null) {
+      throw new Error("Test cases are not loaded yet");
+    }
+    const updatedTestCases = testCases.map((testCase) => {
+      const score = scores.find((score) => score.id === testCase.id);
+      if (score) {
+        if (!score?.promptId) {
+          throw new Error("Prompt ID is required");
+        }
+        return {
+          ...testCase,
+          scores: {
+            ...testCase.scores,
+            [score.promptId]: {
+              expected_score: score.expectedScore,
+              atla_score: score.atlaScore,
+            },
+          },
+        };
+      }
+
+      return testCase;
+    });
+
+    setTestCases(updatedTestCases);
+  };
+
   const setTestCaseValue = ({
     id,
     key,
@@ -205,6 +240,7 @@ function useTestCaseData({
     isLoading,
     testCases: testCases,
     setTestCaseScore,
+    setTestCaseScores,
     setTestCaseValue,
     setTestCaseValues,
     addTestCase,

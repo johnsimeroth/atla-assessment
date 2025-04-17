@@ -38,6 +38,7 @@ export default function Generate() {
     addTestCase,
     setTestCaseValues,
     setTestCaseScore,
+    setTestCaseScores,
     testCasesWithScores,
     completeTestCases,
     removeTestCase,
@@ -66,6 +67,7 @@ export default function Generate() {
     setTestCaseValues,
     completeTestCases,
     setTestCaseScore,
+    setTestCaseScores,
     promptId: selectedPrompt?.id ?? null,
   });
 

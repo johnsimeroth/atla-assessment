@@ -2,7 +2,6 @@
 
 import { MetricResponse } from "../../api/metrics/get";
 import { plot, lineY } from "@observablehq/plot";
-import unstacked from "@/../unstacked.json";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { BaseDropdown } from "@/app/lib/components/Dropdowns/BaseDropdown";
 import { Preconditions } from "@/app/lib/utils/preconditions";
@@ -45,15 +44,32 @@ const ScoreVisualizer = ({
     }));
   }, [testCases, selectedPrompt]);
 
-  console.log(testCases, error);
-  // const scoreDataForAllPrompts = useMemo(() => {
-  //   if (!testCases) return [];
-  //   return testCases.map((testCase, i) => ({
-  //     label: numToChar(i),
-  //     "Atla score": testCase.scores[selectedPrompt.id]?.atla_score,
-  //     "Expected score": testCase.scores[selectedPrompt.id]?.expected_score,
-  //   }));
-  // }, [testCases]);
+  const scoreDataForAllPrompts: {
+    "Test case": string;
+    Version: number | undefined;
+    "Atla score": number | null;
+    "Expected score": number | null;
+    Deviation: number | null;
+  }[][] = useMemo(() => {
+    if (!testCases || !selectedMetric) return [];
+    return selectedMetric?.prompts.map((prompt) =>
+      testCases.map((testCase, i) => {
+        const atlaScore = testCase.scores[prompt.id]?.atla_score;
+        const expectedScore = testCase.scores[prompt.id]?.expected_score;
+        return {
+          Version: prompt.version,
+          "Test case": numToChar(i),
+          "Atla score": atlaScore,
+          "Expected score": expectedScore,
+          Deviation:
+            atlaScore != null && expectedScore != null
+              ? atlaScore - expectedScore
+              : null,
+        };
+      })
+    );
+  }, [testCases, selectedMetric]);
+
   useEffect(() => {
     const chartContainer = chartRef.current;
     if (!chartContainer) return;
@@ -74,26 +90,42 @@ const ScoreVisualizer = ({
     if (!chartContainer) return;
 
     chartContainer.innerHTML = "";
+    // const chart = plot({
+    //   width,
+    //   height: 500,
+    //   y: { grid: true, label: "Score" },
+    //   color: { legend: true },
+    //   marks: [
+    //     lineY(scoreDataForPrompt, {
+    //       x: "Test case",
+    //       y: "Atla score",
+    //       stroke: () => "Atla score",
+    //     }),
+    //     lineY(scoreDataForPrompt, {
+    //       x: "Test case",
+    //       y: "Expected score",
+    //       stroke: () => "Expected score",
+    //     }),
+    //   ],
+    // });
+
     const chart = plot({
       width,
       height: 500,
-      y: { grid: true, label: "Score" },
+      y: { grid: true, label: "Deviation" },
       color: { legend: true },
-      marks: [
-        lineY(scoreDataForPrompt, {
+      marks: scoreDataForAllPrompts.map((prompt) => {
+        const version = prompt[0].Version;
+        return lineY(prompt, {
           x: "Test case",
-          y: "Atla score",
-          stroke: () => "Atla score",
-        }),
-        lineY(scoreDataForPrompt, {
-          x: "Test case",
-          y: "Expected score",
-          stroke: () => "Expected score",
-        }),
-      ],
+          y: "Deviation",
+          stroke: () => (version ? `v${version}` : null),
+        });
+      }),
     });
+
     chartContainer.appendChild(chart);
-  }, [width, scoreDataForPrompt]);
+  }, [width, scoreDataForAllPrompts]);
 
   return (
     <div className="mt-8">

@@ -21,6 +21,7 @@ function useRunEvaluations({
   setTestCaseValues,
   completeTestCases,
   setTestCaseScore,
+  setTestCaseScores,
   promptId,
 }: {
   template?: string;
@@ -39,6 +40,14 @@ function useRunEvaluations({
     expectedScore: number | null;
     atlaScore: number | null;
   }) => void;
+  setTestCaseScores: (
+    scores: {
+      id: string;
+      promptId: string | null;
+      expectedScore: number | null;
+      atlaScore: number | null;
+    }[]
+  ) => void;
   completeTestCases: GetTestCasesForMetricResponse | null;
   promptId: string | null;
 }) {
@@ -93,15 +102,19 @@ function useRunEvaluations({
       ];
     });
 
+    const scoreUpdates = result.map(
+      ({ evaluation: { score: atlaScore } }, index) => {
+        return {
+          id: testCases[index].id,
+          promptId,
+          expectedScore: testCases[index].expectedScore,
+          atlaScore,
+        };
+      }
+    );
+
     setTestCaseValues(updates);
-    result.forEach(({ evaluation: { score: atlaScore } }, index) => {
-      setTestCaseScore({
-        id: testCases[index].id,
-        promptId,
-        expectedScore: testCases[index].expectedScore,
-        atlaScore,
-      });
-    });
+    setTestCaseScores(scoreUpdates);
   };
 
   const runAllEvaluations = async () => {
