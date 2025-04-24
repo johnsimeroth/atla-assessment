@@ -136,7 +136,6 @@ async function update(
         };
       })
       .filter((tc) => tc != null);
-    console.log({ updatedTestCases });
     updatedTestCases.forEach(createTestCase);
   }
 

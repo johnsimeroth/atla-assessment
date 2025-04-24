@@ -1,14 +1,22 @@
 "use client";
 
 import { MetricResponse } from "../../api/metrics/get";
-import { plot, lineY } from "@observablehq/plot";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { BaseDropdown } from "@/app/lib/components/Dropdowns/BaseDropdown";
+import {
+  BaseDropdown,
+  Option,
+} from "@/app/lib/components/Dropdowns/BaseDropdown";
 import { Preconditions } from "@/app/lib/utils/preconditions";
 import { useGetTestCasesForMetric } from "../../queries/useGetTestCasesForMetric";
 import { numToChar } from "./numToChar";
+import {
+  AllVersionsData,
+  CurrentVersionData,
+  plotAllVersionScores,
+  plotCurrentVersionScores,
+} from "./plots";
 
-const DropdownOptions = [
+const DropdownOptions: Option[] = [
   {
     value: "this_version",
     label: "This version",
@@ -28,29 +36,24 @@ const ScoreVisualizer = ({
 }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(600);
-  const [selectedOption, setSelectedOption] = useState<
-    (typeof DropdownOptions)[number]
-  >(DropdownOptions[0]);
+  const [selectedOption, setSelectedOption] = useState<Option>(
+    DropdownOptions[0]
+  );
   const { data: testCases, error } = useGetTestCasesForMetric({
     metricId: selectedMetric?.id,
   });
 
-  const scoreDataForPrompt = useMemo(() => {
+  const scoreDataForPrompt: CurrentVersionData = useMemo(() => {
     if (!testCases || !selectedPrompt) return [];
     return testCases.map((testCase, i) => ({
       "Test case": numToChar(i),
+      "Test case input": testCase.input,
       "Atla score": testCase.scores[selectedPrompt.id]?.atla_score,
       "Expected score": testCase.scores[selectedPrompt.id]?.expected_score,
     }));
   }, [testCases, selectedPrompt]);
 
-  const scoreDataForAllPrompts: {
-    "Test case": string;
-    Version: number | undefined;
-    "Atla score": number | null;
-    "Expected score": number | null;
-    Deviation: number | null;
-  }[][] = useMemo(() => {
+  const scoreDataForAllPrompts: AllVersionsData = useMemo(() => {
     if (!testCases || !selectedMetric) return [];
     return selectedMetric?.prompts.map((prompt) =>
       testCases.map((testCase, i) => {
@@ -59,6 +62,7 @@ const ScoreVisualizer = ({
         return {
           Version: prompt.version,
           "Test case": numToChar(i),
+          "Test case input": testCase.input,
           "Atla score": atlaScore,
           "Expected score": expectedScore,
           Deviation:
@@ -90,42 +94,13 @@ const ScoreVisualizer = ({
     if (!chartContainer) return;
 
     chartContainer.innerHTML = "";
-    // const chart = plot({
-    //   width,
-    //   height: 500,
-    //   y: { grid: true, label: "Score" },
-    //   color: { legend: true },
-    //   marks: [
-    //     lineY(scoreDataForPrompt, {
-    //       x: "Test case",
-    //       y: "Atla score",
-    //       stroke: () => "Atla score",
-    //     }),
-    //     lineY(scoreDataForPrompt, {
-    //       x: "Test case",
-    //       y: "Expected score",
-    //       stroke: () => "Expected score",
-    //     }),
-    //   ],
-    // });
-
-    const chart = plot({
-      width,
-      height: 500,
-      y: { grid: true, label: "Deviation" },
-      color: { legend: true },
-      marks: scoreDataForAllPrompts.map((prompt) => {
-        const version = prompt[0].Version;
-        return lineY(prompt, {
-          x: "Test case",
-          y: "Deviation",
-          stroke: () => (version ? `v${version}` : null),
-        });
-      }),
-    });
+    const chart =
+      selectedOption.value === "this_version"
+        ? plotCurrentVersionScores({ width, data: scoreDataForPrompt })
+        : plotAllVersionScores({ width, data: scoreDataForAllPrompts });
 
     chartContainer.appendChild(chart);
-  }, [width, scoreDataForAllPrompts]);
+  }, [width, scoreDataForPrompt, scoreDataForAllPrompts, selectedOption.value]);
 
   return (
     <div className="mt-8">

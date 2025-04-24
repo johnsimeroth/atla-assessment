@@ -16,22 +16,24 @@ const Prompt = ({
   }) => void;
 }) => {
   return (
-    <div className="bg-white h-full ml-2.5 rounded-2xl border border-border-gray flex flex-col py-4 px-6">
-      {selectedPrompt === null ? (
-        <BlankSlate />
-      ) : (
-        <>
-          <PopulatedPrompt
-            selectedPrompt={selectedPrompt}
-            selectedMetric={selectedMetric!}
-            setSelectedPrompt={setSelectedPrompt}
-          />
-          <ScoreVisualizer
-            selectedPrompt={selectedPrompt}
-            selectedMetric={selectedMetric}
-          />
-        </>
-      )}
+    <div className="pl-2.5 h-full">
+      <div className="bg-white w-full h-full rounded-2xl border border-border-gray flex flex-col py-4 px-6">
+        {selectedPrompt === null ? (
+          <BlankSlate />
+        ) : (
+          <>
+            <PopulatedPrompt
+              selectedPrompt={selectedPrompt}
+              selectedMetric={selectedMetric!}
+              setSelectedPrompt={setSelectedPrompt}
+            />
+            <ScoreVisualizer
+              selectedPrompt={selectedPrompt}
+              selectedMetric={selectedMetric}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 };

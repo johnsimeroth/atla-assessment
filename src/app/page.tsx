@@ -23,7 +23,7 @@ export default function Home() {
               setSelectedPrompt={handleSetSelectedPrompt}
             />
           </div>
-          <div className="flex-col justify-between flex gap-2.5">
+          <div className="flex-col justify-between flex gap-2.5 w-full">
             <Prompt
               selectedPrompt={selectedPrompt}
               selectedMetric={selectedMetric}

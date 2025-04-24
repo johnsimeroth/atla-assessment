@@ -331,7 +331,12 @@ function TestCasesTableRow({
             <BinaryToggle
               value={expectedScore}
               onChange={(value) =>
-                onValueChange({ id, key: "expected_score", value })
+                setTestCaseScore({
+                  id,
+                  promptId: selectedPromptId ?? null,
+                  expectedScore: value,
+                  atlaScore,
+                })
               }
               allowNoValue
             />
@@ -341,7 +346,12 @@ function TestCasesTableRow({
           <FloatInput
             value={expectedScore}
             onChange={(value) =>
-              onValueChange({ id, key: "expected_score", value: value })
+              setTestCaseScore({
+                id,
+                promptId: selectedPromptId ?? null,
+                expectedScore: value,
+                atlaScore,
+              })
             }
             max={1}
             min={0}
