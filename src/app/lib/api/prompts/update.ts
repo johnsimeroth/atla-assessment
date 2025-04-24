@@ -1,5 +1,12 @@
-import { FewShot, Prompt, ScoringCriteria } from "../../types";
-import { createFewShot, createMetric, createPrompt } from "../../db";
+import { FewShot, Prompt, ScoringCriteria, TestCaseScores } from "../../types";
+import {
+  createFewShot,
+  createMetric,
+  createPrompt,
+  getTestCaseById,
+  createTestCase,
+  getPromptsForMetric,
+} from "../../db";
 
 export interface UpdatePromptRequest {
   id: string;
@@ -58,7 +65,7 @@ interface UpdatePromptResponse {
 }
 
 async function update(
-  request: UpdatePromptRequest,
+  request: UpdatePromptRequest
 ): Promise<UpdatePromptResponse> {
   const prompts: Prompt[] = request.metric.prompts.map((prompt, index) => {
     return {
@@ -73,6 +80,7 @@ async function update(
     };
   });
 
+  const existingPromptIds = getPromptsForMetric(request.id).map(({ id }) => id);
   prompts.forEach(createPrompt);
 
   const fewShots: FewShot[] | undefined = request.metric.few_shots?.map(
@@ -87,11 +95,49 @@ async function update(
         ...(fewShot.reference ? { reference: fewShot.reference } : {}),
         inUse: fewShot.in_use || true,
       };
-    },
+    }
   );
 
   if (fewShots) {
     fewShots.forEach(createFewShot);
+  }
+
+  const newPromptScores: TestCaseScores = {};
+  prompts.forEach((p) => {
+    if (!existingPromptIds.includes(p.id)) {
+      newPromptScores[p.id] = { expectedScore: null, atlaScore: null };
+    }
+  });
+
+  const testCaseIds = request.metric.test_cases?.map(({ id }) => id);
+
+  if (testCaseIds) {
+    const latestExistingPromptId =
+      existingPromptIds[existingPromptIds.length - 1];
+    const updatedTestCases = testCaseIds
+      .map((id) => {
+        const currentTestCase = getTestCaseById(id);
+        if (!currentTestCase) {
+          return;
+        }
+        const testCaseExpectedScore =
+          currentTestCase.scores[latestExistingPromptId].expectedScore;
+        const populatedPromptScores: TestCaseScores = Object.entries(
+          newPromptScores
+        ).reduce((acc, [k, v]) => {
+          return {
+            ...acc,
+            [k]: { ...v, expectedScore: testCaseExpectedScore },
+          };
+        }, {});
+        return {
+          ...currentTestCase,
+          scores: { ...currentTestCase.scores, ...populatedPromptScores },
+        };
+      })
+      .filter((tc) => tc != null);
+    console.log({ updatedTestCases });
+    updatedTestCases.forEach(createTestCase);
   }
 
   const metric = {
