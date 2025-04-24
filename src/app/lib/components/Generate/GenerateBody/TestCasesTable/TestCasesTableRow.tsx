@@ -85,6 +85,7 @@ function TestCasesTableRow({
   atlaScore,
   atlaCritique,
   onValueChange,
+  setTestCaseScore,
   isLastRow,
   scoringCriteria,
   runEvaluations,
@@ -109,6 +110,17 @@ function TestCasesTableRow({
     id: string;
     key: string;
     value: string | number | null;
+  }) => void;
+  setTestCaseScore: ({
+    id,
+    promptId,
+    expectedScore,
+    atlaScore,
+  }: {
+    id: string;
+    promptId: string | null;
+    expectedScore: number | null;
+    atlaScore: number | null;
   }) => void;
   isLastRow: boolean;
   scoringCriteria: ScoringCriteria;
@@ -305,7 +317,12 @@ function TestCasesTableRow({
           <OneToFiveDropdown
             value={expectedScore}
             onChange={(value) =>
-              onValueChange({ id, key: "expected_score", value })
+              setTestCaseScore({
+                id,
+                promptId: selectedPromptId ?? null,
+                expectedScore: value,
+                atlaScore,
+              })
             }
           />
         )}

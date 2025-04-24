@@ -117,6 +117,7 @@ export default function Generate() {
             hasContext={inputs.hasContext}
             hasReference={inputs.hasReference}
             onValueChange={setTestCaseValue}
+            setTestCaseScore={setTestCaseScore}
             scoringCriteria={selectedMetric!.scoring_criteria}
             runEvaluations={runEvaluations}
             runningEvaluations={runningEvaluations}

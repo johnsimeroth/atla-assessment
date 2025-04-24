@@ -9,6 +9,7 @@ function GenerateBody({
   hasContext,
   hasReference,
   onValueChange,
+  setTestCaseScore,
   scoringCriteria,
   runEvaluations,
   runningEvaluations,
@@ -26,6 +27,17 @@ function GenerateBody({
     id: string;
     key: string;
     value: string | number | null;
+  }) => void;
+  setTestCaseScore: ({
+    id,
+    promptId,
+    expectedScore,
+    atlaScore,
+  }: {
+    id: string;
+    promptId: string | null;
+    expectedScore: number | null;
+    atlaScore: number | null;
   }) => void;
   scoringCriteria: ScoringCriteria;
   runEvaluations: (testCases: RunEvaluationInput) => void;
@@ -68,16 +80,17 @@ function GenerateBody({
               response={testCase.response}
               expectedScore={
                 selectedPromptId
-                  ? testCase.scores[selectedPromptId]?.expected_score
+                  ? (testCase.scores[selectedPromptId]?.expected_score ?? null)
                   : null
               }
               atlaScore={
                 selectedPromptId
-                  ? testCase.scores[selectedPromptId]?.atla_score
+                  ? (testCase.scores[selectedPromptId]?.atla_score ?? null)
                   : null
               }
               atlaCritique={testCase.critique}
               onValueChange={onValueChange}
+              setTestCaseScore={setTestCaseScore}
               isLastRow={testCases.length - 1 === index}
               scoringCriteria={scoringCriteria}
               runEvaluations={runEvaluations}
